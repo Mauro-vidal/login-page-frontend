@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-default-login-layout',
@@ -11,5 +11,19 @@ export class DefaultLoginLayoutComponent {
   @Input() title: string = "";
   @Input() primaryBtnText: string = "";
   @Input() secondaryBtnText: string = "";
+  @Output("submit") onSubmit = new EventEmitter(); // submit do formulário
+
+  @Output("navigate") onNavigate = new EventEmitter();
+  
+  //submit do formulário
+  submit(){
+    this.onSubmit.emit();
+  }
+
+  navigate(){
+    this.onNavigate.emit();
+  }
+
+
 
 }
