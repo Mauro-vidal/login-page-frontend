@@ -5,20 +5,26 @@
 >
     <form [formGroup]="loginForm">
         <app-primary-input
-            formName="email"
+            formControlName="email"
+            inputName="email"
             type="email"
             label="Email"
             placeholder="johndoe@gmail.com"
         >
             <img src="/assets/svg/email-icon.svg" alt="email icon">
         </app-primary-input>
+
         <app-primary-input
-            formName="password"
+            formControlName="password"
+            inputName="password"
             type="password"
             label="Your Password"
         >
-            <img src="/assets/svg/password-icon.svg" alt="password icon">
+        <img src="/assets/svg/password-icon.svg"/>
+
+        
         </app-primary-input>
+        
        
         
     </form>
