@@ -2,11 +2,16 @@
     <section class="form-section">
         <img src="/assets/svg/logo.svg" alt="logo">
         <h2>{{ title }}</h2>
-        <button>{{ primaryBtnText }}</button>
-        <div>
-            <span>or</span>
+        <div class="btn-wrapper">
+            <button class="btn-primary">{{ primaryBtnText }}</button>
+            <div class="divider">
+                <div></div>
+                <span>or</span>
+                <div></div>
+            </div>
+            <button class="btn-secondary">{{ secondaryBtnText }}</button>
         </div>
-        <button>{{ secondaryBtnText }}</button>
+       
     </section>
 
     <section class="main-section">
