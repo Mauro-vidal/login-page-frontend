@@ -4,11 +4,20 @@ import { SignupComponent } from './pages/signup/signup.component';
 
 export const routes: Routes = [
     {
+        path: "",
+        redirectTo: "login",
+        pathMatch: "full"
+    },
+    {
         path: "login",
         component: LoginComponent
     },
     {
         path: "signup",
         component: SignupComponent
+    },
+    {
+        path: "**",
+        redirectTo: "login" // Redireciona para login em caso de rota inválida
     }
 ];
