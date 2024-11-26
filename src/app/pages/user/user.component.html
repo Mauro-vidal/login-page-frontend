@@ -1,1 +1,50 @@
-<p>Usuário autenticado</p>
+<div class="user-container">
+    <h2>Lista de Usuários</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <button (click)="editUser(user)">
+              <img src="/assets/svg/edit-icon.svg" alt="Editar" />
+            </button>
+            <button (click)="deleteUser(user.id)">
+              <img src="/assets/svg/delete-icon.svg" alt="Excluir" />
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Formulário de edição -->
+    <div *ngIf="selectedUser" class="user-form">
+      <h3>Editar Usuário</h3>
+      <form [formGroup]="userForm" (ngSubmit)="saveUser()">
+        <label>
+          Nome:
+          <input formControlName="name" />
+        </label>
+        <label>
+          Email:
+          <input formControlName="email" type="email" />
+        </label>
+        <label>
+          Senha:
+          <input formControlName="password" type="password" />
+        </label>
+        <div class="form-actions">
+          <button type="submit" [disabled]="!userForm.valid">Salvar</button>
+          <button type="button" (click)="closeForm()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
