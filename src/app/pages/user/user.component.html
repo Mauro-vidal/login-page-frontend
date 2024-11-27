@@ -1,5 +1,14 @@
 <div class="user-container">
     <h2>Lista de Usuários</h2>
+
+    <input
+      type="text"
+      placeholder="Buscar por nome..."
+      [(ngModel)]="searchTerm"
+      (input)="filterUsers()"
+      class="search-input"
+    />
+
     <table>
       <thead>
         <tr>
@@ -14,10 +23,11 @@
           <td>{{ user.email }}</td>
           <td>
             <button (click)="editUser(user)">
-              <img src="/assets/svg/edit-icon.svg" alt="Editar" />
+                <img src="/assets/svg/edit-icon.svg" alt="Editar" title="editar" />
             </button>
-            <button (click)="deleteUser(user.id)">
-              <img src="/assets/svg/delete-icon.svg" alt="Excluir" />
+            <button (click)="confirmDelete(user.id)">
+            
+                <img src="/assets/svg/delete-icon.svg" alt="Excluir" title="excluir" />
             </button>
           </td>
         </tr>
@@ -46,5 +56,19 @@
         </div>
       </form>
     </div>
-  </div>
+
+     <!-- Paginação -->
+    <div class="pagination">
+      <button [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)">
+        Anterior
+      </button>
+      <span>Página {{ currentPage }} de {{ totalPages }}</span>
+      <button
+        [disabled]="currentPage === totalPages"
+        (click)="changePage(currentPage + 1)"
+      >
+        Próxima
+      </button>
+    </div>
+</div>
   
