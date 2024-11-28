@@ -53,6 +53,18 @@ export class SignupComponent {
     })
   }
 
+  //redireciona para o login após o cadastro.
+  // submit(){
+  //   this.loginService.signup(this.signupForm.value.name, this.signupForm.value.email, this.signupForm.value.password).subscribe({
+  //     next: () => {
+  //       this.toastService.success("Cadastro feito com sucesso!");
+  //       // Redireciona para a página de login após o cadastro
+  //       this.router.navigate(["login"]);
+  //     },
+  //     error: () => this.toastService.error("Erro inesperado! Tente novamente mais tarde")
+  //   })
+  // }
+
   navigate(){
     this.router.navigate(["login"])
   }
