@@ -7,9 +7,18 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { routes } from './app.routes';
 import { authInterceptor } from './services/auth.interceptor';
 import { FormsModule } from '@angular/forms';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    CommonModule,
     provideRouter(routes),
     provideAnimations(),
     provideToastr(),
@@ -18,6 +27,15 @@ export const appConfig: ApplicationConfig = {
       withInterceptors([authInterceptor]) // Registra o interceptor aqui
     ),
     provideAnimationsAsync(),
-    importProvidersFrom(FormsModule),
+    importProvidersFrom(
+      FormsModule,
+      MatFormFieldModule,
+      MatPaginatorModule,
+      MatInputModule,
+      MatTableModule,
+      MatIconModule,
+      MatButtonModule,
+      MatCardModule
+    ),
   ],
 };
