@@ -5,6 +5,7 @@ import { UserServiceService } from '../../services/user-service.service';
 import { CommonModule } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -32,7 +33,8 @@ export class UserComponent implements OnInit {
   constructor(
     private userService: UserServiceService,
     private toastr: ToastrService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -116,5 +118,9 @@ export class UserComponent implements OnInit {
   closeForm(): void {
     this.selectedUser = null;
     this.userForm.reset();
+  }
+
+  goBack(): void {
+    this.router.navigate(['/login']); // Redireciona para a página de login
   }
 }
