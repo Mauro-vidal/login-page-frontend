@@ -35,11 +35,11 @@
 
   <!-- Paginação -->
   <div class="pagination">
-    <button [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)">
+    <button [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)" title="Página Anterior">
       Anterior
     </button>
     <span>Página {{ currentPage }} de {{ totalPages }}</span>
-    <button [disabled]="currentPage === totalPages" (click)="changePage(currentPage + 1)">
+    <button [disabled]="currentPage === totalPages" (click)="changePage(currentPage + 1)" title="Próxima página">
       Próxima
     </button>
   </div>
@@ -68,7 +68,7 @@
 
   <!-- Botão Voltar -->
 <div class="back-button">
-  <button (click)="goBack()">Voltar</button>
+  <button title="ir para login" (click)="goBack()">Voltar</button>
 </div>
 
 </div>

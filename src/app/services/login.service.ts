@@ -8,7 +8,7 @@ import { tap } from 'rxjs';
 })
 export class LoginService {
 
-  apiUrl: string = "http://localhost:8080/auth"
+  apiUrl: string = "https://login-auth-8ca8fbd97291.herokuapp.com/auth"
 
   constructor(private httpClient: HttpClient) { }
 

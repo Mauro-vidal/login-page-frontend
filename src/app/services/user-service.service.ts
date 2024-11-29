@@ -8,7 +8,7 @@ import { User } from '../types/user-response';
 })
 export class UserServiceService {
 
-  apiUrl: string = "http://localhost:8080/user"
+  apiUrl: string = "https://login-auth-8ca8fbd97291.herokuapp.com/user"
 
   constructor(private http: HttpClient) { }
 
